@@ -49,8 +49,8 @@
 │   └── system #golang OS系統設置模組pkg
 │
 ├── main.go #golang main()整體專案入口
-├── pkg #golang main() 公有pkg 
-│ 
+├── pkg #golang 公有pkg 
+│    └── src #golang依賴github pkg
 ├── runBuild.sh #build執行檔腳本（檔案輸出至./build）
 └── website #網頁版模與靜態資源
     ├── downloads #下載清單檔案放置處(壓縮檔也放置此)
