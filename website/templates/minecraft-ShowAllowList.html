@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+ 
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{{.HTMLValue_Title}}</title>
+		<style>
+			#iframeLeft{
+				width: 20%;
+			}
+			#divRight{
+				width: 79%;
+				float: right;
+			}
+			</style>
+	</head>
+
+	<body>
+	<div>
+
+		<iframe id="iframeLeft" name="iframeLeft" src="{{.HTMLPage_Menu}}" allowTransparency="true" width="100%" marginwidth="0" marginheight="0" scrolling="No" frameborder="0" onload="Javascript:JSF_SetCWinHeight()"></iframe>
+		<div id="divRight" onload="Javascript:JSF_SetCWinHeight()">
+		<div> -- 最後維護: {{.HTMLValue_LastUpdate}}</div>
+		<br>
+		<div>
+			<label>whitelist.json 白名單</label>
+			<div></div>
+			<textarea style="width: 75%; max-width: 100%;"   rows=10 id="HTMLOutput_OutputPlayerText" name="HTMLOutput_OutputPlayerText">{{.HTMLValue_OutputPlayerText}}</textarea>
+			<br>
+			<form method="POST" action="{{.HTMLValue_AddAllowList}}">     
+				<label> Name:</label><input style="width: 20%; max-width: 100%;" id="HTMLInput_AllowName" name="HTMLInput_AllowName" type="text" value="" >
+				<label> UUID:</label><input style="width: 20%; max-width: 100%;" id="HTMLInput_AllowUUID" name="HTMLInput_AllowUUID" type="text" value="" >
+				<input style="width: 25%; max-width: 50%;" type="submit" value="添加白名單" />
+			</form>
+			<br>
+			{{.HTMLValue_OutputReturn}}
+		</div>
+		
+		
+	</div>
+	
+	</body>
+	<script  language="javascript">
+		function JSF_SetCWinHeight() {
+			document.getElementById("iframeLeft").height =window.innerHeight - 10;
+			document.getElementById("divRight").height =window.innerHeight - 10;
+		}
+	</script>
+</html>
+

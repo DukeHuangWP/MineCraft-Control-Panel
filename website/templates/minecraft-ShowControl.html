@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+ 
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{{.HTMLValue_Title}}</title>
+		<style>
+			#iframeLeft{
+				width: 20%;
+			}
+			#divRight{
+				width: 79%;
+				float: right;
+			}
+			</style>
+	</head>
+
+	<body>
+	<div>
+
+		<iframe id="iframeLeft" name="iframeLeft" src="{{.HTMLPage_Menu}}" allowTransparency="true" width="100%" marginwidth="0" marginheight="0" scrolling="No" frameborder="0" onload="Javascript:JSF_SetCWinHeight()"></iframe>
+		<div id="divRight" onload="Javascript:JSF_SetCWinHeight()">
+		<div> -- 最後維護: {{.HTMLValue_LastUpdate}}</div>
+		<br>
+		<div>
+		<form>     
+
+			<input type="button" onclick="if(confirm('確定重啟伺服器?')){ location.href='{{.HTMLValue_RunRestartScript}}' };" value="重啟伺服器" />
+			<input type="button" onclick="if(confirm('確定停止伺服器?')){ location.href='{{.HTMLValue_RunStopScript}}' };" value="停止伺服器" />
+			<input type="button" onclick="let input = prompt('請輸入「刪除」後將會刪除所有模組'); if(input=='刪除'){ location.href='{{.HTMLValue_RunDeleteModsScript}}' };" value="刪除所有模組檔" />
+			<input type="button" onclick="let input = prompt('請輸入「刪除」後將會刪除刪除所有主世界地圖'); if(input=='刪除'){ location.href='{{.HTMLValue_RunDeleteOverWorldMap}}' };" value="刪除整個主世界" />
+			<input type="button" onclick="let input = prompt('請輸入「刪除」後將會刪除刪除所有地獄世界(DMI-1)'); if(input=='刪除'){ location.href='{{.HTMLValue_RunDeleteNetherMap}}' };" value="刪除整個地獄世界(DMI-1)" />
+			<input type="button" onclick="let input = prompt('請輸入「刪除」後將會刪除刪除所有終界世界(DMI1)'); if(input=='刪除'){ location.href='{{.HTMLValue_RunDeleteEndMap}}' };" value="刪除整個終界世界(DMI1)" />
+			<div>
+			<input type="button" onclick="let input = prompt('請輸入「執行」後將會執行預留腳本1'); if(input=='執行'){ location.href='{{.HTMLValue_RunCustomScript1}}' };" value="執行預留腳本1" />
+			<input type="button" onclick="let input = prompt('請輸入「執行」後將會執行預留腳本2?'); if(input=='執行'){ location.href='{{.HTMLValue_RunCustomScript2}}' };" value="執行預留腳本2" />
+			<input type="button" onclick="let input = prompt('請輸入「執行」後將會執行預留腳本3?'); if(input=='執行'){ location.href='{{.HTMLValue_RunCustomScript3}}' };" value="執行預留腳本3" />
+			<input type="button" onclick="let input = prompt('請輸入「執行」後將會執行預留腳本4?'); if(input=='執行'){ location.href='{{.HTMLValue_RunCustomScript4}}' };" value="執行預留腳本4" />
+			<input type="button" onclick="let input = prompt('請輸入「執行」後將會執行預留腳本5?'); if(input=='執行'){ location.href='{{.HTMLValue_RunCustomScript5}}' };" value="執行預留腳本5" />
+			<br>
+			<br>
+			<textarea style="width: 90%; max-width: 100%;"   rows=30 id="HTMLOutput_OutputMessage" name="HTMLOutput_OutputMessage">{{.HTMLValue_OutputMessage}}</textarea>
+			<br>
+			{{.HTMLValue_OutputReturn}}
+			
+		</form>
+		</div>
+		
+		
+	</div>
+	
+	</body>
+	<script  language="javascript">
+		function JSF_SetCWinHeight() {
+			document.getElementById("iframeLeft").height =window.innerHeight - 10;
+			document.getElementById("divRight").height =window.innerHeight - 10;
+		}
+	</script>
+</html>
+
