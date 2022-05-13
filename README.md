@@ -68,7 +68,7 @@
 	/         #GET 根目錄將自動轉跳/login?state=indexMenu (靜態首頁)
 	/login	  #GET&POST 登陸api接口,所有網頁服務必需通過此接口
 	/callback #GET 驗證客戶端獲得的GoogleOauth2認證碼,並藉由Query:'state' 作為Param後開始後續使用服務
-    /upload   #POST 上傳檔案接口,上傳過程包含Token驗證,同時間只能容許一位使用者操作
+	/upload   #POST 上傳檔案接口,上傳過程包含Token驗證,同時間只能容許一位使用者操作
 ```
 
 ## google Oauth2 原理
