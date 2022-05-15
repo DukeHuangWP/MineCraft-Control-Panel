@@ -98,18 +98,16 @@ func main() {
 	}
 	//========================往下為timeout後觸發func======================================={
 	go func() {
-		select {
-		case <-timeoutCTX.Done(): //timeout觸發
-			timeoutClose()
-			log.Printf("超時%v秒, API服務強制關閉！\n", timeoutSec)
-			os.Exit(3)
-		}
+		<-timeoutCTX.Done() //timeout觸發
+		timeoutClose()
+		log.Printf("超時%v秒, API服務強制關閉！\n", timeoutSec)
+		os.Exit(3)
 	}()
 	log.Printf("\n正在關閉API服務... \n")
 	//====================================================================================}
 
-	//========================往下執行自定義需要觸發關機程序的func============================={
-	//alert.SendMessageWithTime(fmt.Sprintf("服務已遭受關閉 > %v", common.GetUnixNowSec())) //TG發出告警
+	//========================往下可帶入timeoutCTX執行自定義需要觸發關機程序的func============================={
+	//func(timeoutCTX)
 	//====================================================================================}
 
 	log.Printf("API服務正常已關閉！\n")
